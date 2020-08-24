@@ -1,0 +1,4 @@
+{
+    "dependModuleName": ["epmp"],
+    "dependjs": ["../../../../epmp/index.js"]
+} 
