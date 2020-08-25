@@ -68,7 +68,6 @@ if (config.name === '') {
 }
 
 console.log(config)
-// return ;
 
 CLI.init(config)
 
@@ -90,4 +89,4 @@ switch (config.action) {
 
 
 
-// console.log('---end---------------------------')
+console.log('---end---------------------------')

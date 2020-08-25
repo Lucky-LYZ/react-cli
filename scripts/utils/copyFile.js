@@ -16,9 +16,9 @@ function copyFile (src, dst) {
             paths.forEach(function (path) {
                 // console.log({ path });
                 // 不拷贝js文件
-                if (path.includes('.js')) {
-                    return;
-                }
+                // if (path.includes('.js')) {
+                //     return;
+                // }
                 var _src = src + '/' + path,
                     _dst = dst + '/' + path,
                     readable, writable;

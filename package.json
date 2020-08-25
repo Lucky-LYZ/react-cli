@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"bin": {
-		"cli": "./index.js"
+		"react-cli": "./index.js"
 	},
 	"scripts": {
 		"createCom": "cli page aou"
