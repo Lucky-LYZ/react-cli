@@ -10,16 +10,6 @@ class CLI {
   init (config) {
     this.config = config
   }
-  mkdirsSync (dir) {
-    if (fs.existsSync(dir)) {
-      return true;
-    } else {
-      if (this.mkdirsSync(path.dirname(dir))) {
-        fs.mkdirSync(dir);
-        return true;
-      }
-    }
-  }
   mkdirs (dir, cb) {
     fs.exists(dir, function (exists) {
       if (exists) {

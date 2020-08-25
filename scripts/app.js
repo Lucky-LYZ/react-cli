@@ -8,11 +8,11 @@ class PAGE {
     this.config = config
   }
   begin (dir) {
-    this.createComponent(dir)
+    this.create(dir)
   }
-  createComponent (dir) {
+  create (dir) {
     CLI.mkdirs(dir, () => {
-      CLI.copyFolder('./templates/app/demo', `${dir}`)
+      CLI.copyFolder(this.config.srcApp, `${dir}`)
       return;
     })
   }

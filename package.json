@@ -6,7 +6,8 @@
 		"react-cli": "./index.js"
 	},
 	"scripts": {
-		"createCom": "cli page aou"
+		"createApp": "react-cli app -n appDemo -d ./src/app/",
+		"createCom": "react-cli component -n comDemo -d ./src/components/"
 	},
 	"keywords": [],
 	"author": "lucky-liuyz",

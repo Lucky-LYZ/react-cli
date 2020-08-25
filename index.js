@@ -1,17 +1,19 @@
 #! node
 
 const path = require('path')
-const CLI = require('./scripts/utils/cli')
-const COMPONENT = require('./scripts/utils/component')
+const CLI = require('./scripts/cli')
+const COMPONENT = require('./scripts/component')
+const APP = require('./scripts/app')
 
-const actionOptions = ['page', 'component', 'module']
+const actionOptions = ['app', 'component']
 // module：store下面一个模块module
 const config = {
   action: '', // 动作：page,component,module
   name: '',
-  dirPage: 'src/pages', // 默认路径
-  dirComponent: 'src/app',
-  dirModule: 'src/store',
+  srcComponent: 'templates/components/demo', // 创建组件的默认目标路径
+  srcApp: 'templates/app/demo', // 创建应用的默认目标路径
+  dirComponent: 'src/components', // 创建组件的默认目标路径
+  dirApp: 'src/app', // 创建应用的默认目标路径
   multiFile: false,
 }
 
@@ -19,17 +21,15 @@ console.log('---start---------------------------')
 let argv = process.argv
 console.log('argv', argv)
 if (argv[2] === '-h' || argv.length < 3) {
-  console.log('usage: cli <command> [<args>]\n')
-  console.log('command: page/component/module')
-  console.log('\tpage\t\tcreate a page(view)')
+  console.log('usage: react-cli <command> [<args>]\n')
+  console.log('command: app/component')
+  console.log('\tapp\t\tcreate a app(view)')
   console.log('\tcomponent\tcreate a component')
-  console.log('\tmodule\t\tcreate a module')
   console.log('args:')
   console.log('\t-n\tname. required.')
   console.log('\t-d\tdirectory. default value:')
-  console.log('\t\tpage:\t\t\'./src/pages/\'.')
+  console.log('\t\tapp:\t\t\'./src/app/\'.')
   console.log('\t\tcomponent:\t\'./src/components/\'.')
-  console.log('\t\tmodule:\t\t\'./src/store/\'.')
   console.log('\t-m\tmultiple File. default false. only used in page command.')
   return;
 }
@@ -58,8 +58,7 @@ options.forEach((item, index) => {
       // dir = dir.substr(0, 1) === '/' ? dir.substring(1) : dir
       config.dir = dir
       break;
-    case '-m': //建立多文件，将JS、CSS单独成文件
-      config.multiFile = true
+    default:
       break;
   }
 })
@@ -76,9 +75,13 @@ let dir
 
 // 开始创建
 switch (config.action) {
-  case 'component':
+  case 'app': // 表示当前操作是创建 app
+    dir = `${PATH}/${config.dirApp}/${config.name}`;
+    APP.init(config);
+    APP.begin(dir);
+    break;
+  case 'component': // 表示当前操作是创建组件
     dir = `${PATH}/${config.dirComponent}/${config.name}`;
-    // console.log('dir', dir);
     COMPONENT.init(config);
     COMPONENT.begin(dir);
     break;
