@@ -10,8 +10,8 @@ const actionOptions = ['app', 'component']
 const config = {
   action: '', // 动作：page,component,module
   name: '',
-  srcComponent: 'templates/components/demo', // 创建组件的默认目标路径
-  srcApp: 'templates/app/demo', // 创建应用的默认目标路径
+  srcComponent: 'templates/components/demo', // 创建组件的默认模板路径
+  srcApp: 'templates/app/demo', // 创建应用的默认模板路径
   dirComponent: 'src/components', // 创建组件的默认目标路径
   dirApp: 'src/app', // 创建应用的默认目标路径
   multiFile: false,

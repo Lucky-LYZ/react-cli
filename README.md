@@ -11,7 +11,7 @@
 克隆本项目代码至本地后，在项目根目录，执行如下命令：
 
 ```javascript
-npm install -g
+npm link
 ```
 
 ## 使用方法
